@@ -30,33 +30,42 @@ You can access Binder by clicking on the *Binder badge*:
 
 ### 3. On your machine
 
-1. **Install Git**. Please follow installation instructions for your operating system on [Git webpage](https://git-scm.com/).
+1. **Install Git**. Please follow installation instructions for your operating system on the [Git webpage](https://git-scm.com/).
 
-2. **Clone repository**. In Terminal (Linux and MacOS) or Command Prompt (Windows), navigate to the location where you want the course files to be and run
+2. **Clone the repository**. In Terminal (Linux and macOS) or Command Prompt (Windows), navigate to the location where you want the course files to be and run
 ```console
 $ git clone https://github.com/ese-msc/introduction-to-python
-```    
-3. **Install Anaconda**. We recommend installation using conda package manager. If you do not already have it installed, download [Anaconda](https://www.anaconda.com/products/individual) Python 3 for your operating system and follow the instructions to install it. After the installation is complete, in Terminal (Linux and MacOS) or Anaconda Prompt (Windows), navigate to the course directory, create a new conda environment, and activate it:
-```console
-$ cd path/to/course/directory
-$ conda env create -f environment.yml
-$ conda activate introduction-to-python
-``` 
-4. **Open Jupyter Notebook**. In the environment you just activated, run:
-```console
-$ jupyter notebook &
+$ cd introduction-to-python
 ```
+3. **Set up a Python environment**. You can use either **conda** or **uv** - pick whichever you prefer.
+
+   **Option A: conda**. If you do not already have it installed, download [Anaconda](https://www.anaconda.com/products/individual) Python 3 for your operating system and follow the instructions to install it. After the installation is complete, in Terminal (Linux and macOS) or Anaconda Prompt (Windows), navigate to the course directory, create a new conda environment, and activate it:
+   ```console
+   $ conda env create -f environment.yml
+   $ conda activate introduction-to-python
+   ```
+
+   **Option B: uv**. [uv](https://docs.astral.sh/uv/) is a fast Python package and project manager. Follow the [installation instructions](https://docs.astral.sh/uv/getting-started/installation/) for your operating system, then, from the course directory, run:
+   ```console
+   $ uv sync
+   ```
+   This creates a virtual environment in `.venv` and installs all the dependencies needed for the course.
+
+4. **Open Jupyter Notebook**.
+   * If you used conda, make sure the `introduction-to-python` environment is activated, then run:
+     ```console
+     $ jupyter notebook &
+     ```
+   * If you used uv, run:
+     ```console
+     $ uv run jupyter notebook &
+     ```
 
 ## Testing
 
-After (almost) each exercise in the compulsory part of the course, there are two cells containing some code. In those cells, we test your solution using two different methods:
+After (almost) each exercise in the compulsory part of the course, there is a cell containing `assert` statements that validate your solution. If a cell runs without raising an error, your solution is correct; if it raises an `AssertionError`, revisit your solution and try again.
 
-1. **PyBryt** analyses your solution and provides you feedback on what is correct in your implementation, as well as what might be wrong. Please read PyBryt's feedback carefully and address the `ERROR` messages by modifying your solution.
-2. **assert** statements validate your final solution
-
-It is important to follow the instructions for each exercise exactly and do not change the names of variables, functions, or classes so that tests can analyse your code. Besides, please do not change the content of any of the testing cells.
-
-Although **PyBryt** provides much more detailed feedback, it is possible it complains about your code even though **assert** statement confirms your code is correct. This is because PyBryt testing is based on comparing your solution to reference solutions. Since there is virtually an infinite number of alternative solutions, it is possible that your solution is not in our references. On the other hand, assert statements check the final result of your code and if they do not raise an error, your code is correct and you do not have to address **PyBryt**'s error messages (if any).
+It is important to follow the instructions for each exercise exactly and not change the names of variables, functions, or classes, so that these tests can check your code correctly. Please also avoid changing the content of any testing cell.
 
 ## Support
 
@@ -66,9 +75,9 @@ Although **PyBryt** provides much more detailed feedback, it is possible it comp
 > **A:** Open an issue in this repository. This is a safe, respectful space to ask questions and open issues.
 
 > **Q:** I've never opened an issue. How do I do it?  
-> **A:** Click the `Issues` tab next to top of the page, then click the green `New Issue` button. Ask your question in the title and comment fields, then click  `Submit new issue`. Congratulations, you submitted your question! We will try to get back to you shortly.
+> **A:** Click the `Issues` tab next to the top of the page, then click the green `New Issue` button. Ask your question in the title and comment fields, then click  `Submit new issue`. Congratulations, you submitted your question! We will try to get back to you shortly.
 
 > **Q:** How can I see if somebody else had the same or similar question?  
-> **A:** When you click the `Issues` tab next to top of the page, you can see all issues that are currently open and are being addressed. In addition to them, you can also check the issues that have been resolved in [closed issues](https://github.com/ese-msc/introduction-to-python/issues?q=is%3Aissue+is%3Aclosed).
+> **A:** When you click the `Issues` tab next to the top of the page, you can see all issues that are currently open and are being addressed. In addition to them, you can also check the issues that have been resolved in [closed issues](https://github.com/ese-msc/introduction-to-python/issues?q=is%3Aissue+is%3Aclosed).
 
 Are you a community member that enjoys sharing your knowledge and helping others solve problems? We encourage you to respond to these issues.

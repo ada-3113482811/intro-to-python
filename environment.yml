@@ -5,12 +5,11 @@ channels:
 
 dependencies:
   - pip
-  - python=3.11
+  - python=3.14
   - pip:
     - jupyterlab
-    - numpy
-    - matplotlib
-    - pendulum
-    - okpy
-    - pybryt>=0.7.0
-    - pytest
+    - ipykernel>=7.3.0
+    - numpy>=2.5.1
+    - matplotlib>=3.11.1
+    - pendulum>=3.2.0
+    - pytest>=9.1.1
